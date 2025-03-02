@@ -189,7 +189,7 @@ void print_object(Object *obj) {
 `chal`を動かしてみます。pwndgbを使って解析していきます。`gdbinit`fileに以下の設定を追加しておくと便利です。
 ```bash
 # gdbinitにpwndbgをインストールしたディレクトリのgdbinit.pyを読み込む
-source /[to_path_pwngdb]/pwndbg/gdbinit.py
+source /[to_path_pwndbg]/pwndbg/gdbinit.py
 ```
 以下のコマンドで`chal`を動かします。
 ```bash
