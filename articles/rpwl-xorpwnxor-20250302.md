@@ -211,7 +211,7 @@ https://miso-24.hatenablog.com/entry/2019/10/16/021321
 
 ![5](/images/rwpl-xorpwnxor/5.png)
 
-`edit_object`を利用して`description`領域に対して`0x80`以上のバイトを注入してHeap Buffer Overflowを実施し、`secret_function`のアドレスを`win`のアドレスに書き換えることが出来そうなですね。
+`edit_object`を利用して`description`領域に対して`0x80`以上のバイトを注入してHeap Buffer Overflowを実施し、`secret_function`のアドレスを`win`のアドレスに書き換えることが出来そうですね。
 
 というわけで以下2つの情報を取得出来れば、Exploitが成功しそうです。
 
