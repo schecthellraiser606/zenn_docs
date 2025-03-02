@@ -1,5 +1,5 @@
 ---
-title: "【SECCON】RWPL WorkShop Pwn Challenge - xorpwnxor【Writeup】"
+title: "【SECCON】RWPL Pwn Challenge - xorpwnxor【Writeup】"
 emoji: "💀"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [CTF, pwn, Security, gdb]
