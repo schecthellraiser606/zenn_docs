@@ -3,7 +3,7 @@ title: "【SECCON】RWPL WorkShop Pwn Challenge - xorpwnxor【Writeup】"
 emoji: "💀"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [CTF, pwn, Security, gdb]
-published: false
+published: true 
 ---
 
 # はじめに
