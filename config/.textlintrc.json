@@ -1,0 +1,27 @@
+{
+  "plugins": {},
+  "filters": {"comments": true},
+  "rules": {
+    "no-mix-dearu-desumasu": true,
+    "no-dropping-the-ra": true,
+    "no-doubled-joshi": true,
+    "preset-jtf-style": true,
+    "preset-ja-spacing": true,
+    "preset-ja-technical-writing":{
+      "sentence-length":{
+        "max": 100,
+        "skipPatterns":[
+          "/\\[.+\\]/"
+        ]
+      },
+      "ja-no-mixed-period": false,
+      "noexclamation-question-mark":{
+        "allowHalfWidthExclamation": false,
+        "allowHalfWidthQuestion": false,
+        "allowFullWidthExclamation": true,
+        "allowFullWidthQuestion": true
+      }
+    },
+    "spellcheck-tech-word": true
+  }
+}
