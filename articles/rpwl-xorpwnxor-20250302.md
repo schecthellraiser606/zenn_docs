@@ -186,7 +186,7 @@ void print_object(Object *obj) {
 では実際に`chal`を動かしてみます。
 
 ## 動的解析
-`chal`を動かしてみます。pwndgbを使って解析していきます。`gdbinit`fileに以下の設定を追加しておくと便利です。
+`chal`を動かしてみます。pwndbgを使って解析していきます。`gdbinit`fileに以下の設定を追加しておくと便利です。
 ```bash
 # gdbinitにpwndbgをインストールしたディレクトリのgdbinit.pyを読み込む
 source /[to_path_pwndbg]/pwndbg/gdbinit.py
