@@ -166,7 +166,9 @@ int main() {
 気になる機能としては`case 4`の`call_func`です。`call_func`は`obj->func`を呼び出していますが、その前に`key`で`obj->func`をxorしています。
 `create_object`で`obj->func`に`secret_function`をxorしているので、`call_func`で`secret_function`を呼び出すといった流れに見えます。
 確認してみます。
+
 ![2](/images/rwpl-xorpwnxor/2.png)
+
 呼び出していますね。ではこの`secret_function`のXORされたアドレスを`win`のXORされたアドレスに書き換えて`win`を呼び出せばShellをゲット出来そうです。
 
 また`edit_object`に関しては`gets`が使われて入力を受け付けています。特段入力制限やObjectの状態を見ていないので、ここにHeap Buffer OverflowやUAF（freeしたHeapに色々できそう）の脆弱性が存在しそうです。
@@ -200,7 +202,9 @@ gdb ./chal
 https://miso-24.hatenablog.com/entry/2019/10/16/021321
 
 確認した結果は以下です。
+
 ![3](/images/rwpl-xorpwnxor/3.png)
+
 `PIE enabled`になっているので`win`のアドレスを特定するのが難しくなりそうです。
 
 適当に以下の実行をしてHeapの状態を確認してみます。
@@ -225,11 +229,17 @@ https://miso-24.hatenablog.com/entry/2019/10/16/021321
 disass call_func
 ```
 ![6](/images/rwpl-xorpwnxor/6.png)
+
 `0x55555555533b`で`rax`に`key`を格納する命令があります。ここにブレークポイントを設定します。
+
 ![7](/images/rwpl-xorpwnxor/7.png)
+
 4の`call_func`を実行してみます。
+
 ![8](/images/rwpl-xorpwnxor/8.png)
+
 `n`で実行を進めてやると、`rax`に`key`の値が格納されていることがわかります。
+
 ![9](/images/rwpl-xorpwnxor/9.png)
 
 次の命令で`rax`と`rdx`をXORしているので、この`0x6b8b4567`が`key`として使われていることがわかりますが、コードでは`key = rand();`で呼び出されているので毎回変わる可能性があります。
@@ -256,14 +266,22 @@ print(','.join(f'%{i}$p' for i in range(1,10)))
 ![11](/images/rwpl-xorpwnxor/11.png)
 
 これを`rename_object`で入力し、`print_object`で出力させます。
+
 ![12](/images/rwpl-xorpwnxor/12.png)
+
 `%9$p`で出力されている`0x555555555600`の値がどのアドレス領域なのか確認します。
+
 ![13](/images/rwpl-xorpwnxor/13.png)
+
 `chal`のアドレス領域が確認できました。このリークされたアドレスから`win`のアドレスが相対的にどれくらい離れているのか計算します。
 まず、`inf func`コマンドで現在の`win`のアドレスが確認できます。
+
 ![14](/images/rwpl-xorpwnxor/14.png)
+
 `0x00005555555552fb`にありそうですね。では`win`のアドレスとリークされたアドレスの差を計算します。
+
 ![15](/images/rwpl-xorpwnxor/15.png)
+
 リークアドレスから`0x305`ほど離れたアドレスが`win`のアドレスに当たりそうです。
 
 これで`key`と`win`のアドレスが特定できたので、Exploitを書いていきます。
@@ -347,6 +365,7 @@ vis
 # time.sleep(1)
 ```
 実行するとこのようにShellをゲットできます。
+
 ![16](/images/rwpl-xorpwnxor/16.png)
 
 # おわりに
