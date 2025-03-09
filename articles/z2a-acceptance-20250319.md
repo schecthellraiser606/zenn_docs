@@ -185,7 +185,7 @@ https://amzn.asia/d/db7zndq
 https://www.oreilly.co.jp/books/9784873114552/
 
 #### サイバーセキュリティプログラミング 第2版
-自動化を行う為にPythonを使う際に参考になります。
+自動化を行う為、Pythonを使う際に参考になります。
 
 https://www.oreilly.co.jp/books/9784873119731/
 
