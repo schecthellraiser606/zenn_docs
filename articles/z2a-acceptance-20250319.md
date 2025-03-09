@@ -150,10 +150,10 @@ https://blog.nflabs.jp/entry/2023/06/19/150000
 
 https://migawari-iv.hatenablog.com/
 
-####  MSBD社のBlog
+####  MBSD社のBlog
 mさんのblogでも紹介されてましたが、参考になる解析内容が多いです。
 
-https://www.mbsd.jp/research/
+https://www.mbsd.jp/researcBSBS
 
 https://www.mbsd.jp/research/20211019/blog/
 
