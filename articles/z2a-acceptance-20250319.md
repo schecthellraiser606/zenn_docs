@@ -180,7 +180,7 @@ Reversingを学ぶのにとても良い本です。
 https://amzn.asia/d/db7zndq
 
 #### アナライジング・マルウェア
-古いですが、Windows APIに焦点とした解析の参考になります。
+古いですが、Windows APIを焦点とした解析の参考になります。
 
 https://www.oreilly.co.jp/books/9784873114552/
 
@@ -234,6 +234,12 @@ https://bazaar.abuse.ch/browse/
 :::message alert 
 本物のマルウェアを解析する際は環境には気を付けましょう。
 :::
+
+### JSAC 2025 - IDAとGhidraのプラグインを活用して学ぶ、マルウェアの耐解析機能解析入門
+JSAC 2025のワークショップです。マルウェアのアンチデバックに焦点を当てているワークショップでした。
+アンチデバックに対するx64dbgの使い方など、とても参考になるワークショップでした。
+
+https://jsac.jpcert.or.jp/archive/2025/pdf/JSAC2025_ws3_takeda_For_IDA_User_en.pdf
 
 ## 最後に
 Zero2Automatedの合格体験記を記載しました。
