@@ -3,7 +3,7 @@ title: "【高度マルウェア解析コース】Zero2Automated 合格体験記
 emoji: "🐉"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [malware, Security, x64dbg, SOC]
-published: false
+published: true
 ---
 
 # はじめに
