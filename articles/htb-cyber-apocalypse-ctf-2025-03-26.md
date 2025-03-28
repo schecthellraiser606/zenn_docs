@@ -1036,7 +1036,7 @@ read(0, *(void **)(param_1 + index * 8), __nbytes);
 ![99](/images/cyber-apocalypse-ctf-2025/pwn/99.png)
 ![100](/images/cyber-apocalypse-ctf-2025/pwn/100.png)
 
-`0x31`が`0x71`になっているのが分かります。これでOverlapが出来ました。
+2つ目のサイズが`0x31`から`0x71`になっているのが分かります。これでOverlapが出来ました。
 
 ここで２つ目と３つ目のチャンクを解法してやるとこうなります。
 
