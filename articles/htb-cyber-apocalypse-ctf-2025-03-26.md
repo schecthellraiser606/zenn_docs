@@ -735,6 +735,13 @@ PDFファイルが見えました。ただPDFのヘッダーが壊れてるの�
 **解けてないです！**
 ちゃんとアセンブリと通信見るべきでした。
 
+他の方のWriteup見てるとPython3.13だったようですね。
+後は以下サイトだとPython3.13で完全にデコンパイル出来たみたい。
+
+https://pylingual.io/
+
+![-1](/images/cyber-apocalypse-ctf-2025/forensic/1.png)
+
 # Pwn
 ## Quack Quack - Very Easy
 
