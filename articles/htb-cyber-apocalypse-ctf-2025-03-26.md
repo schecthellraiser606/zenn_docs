@@ -1046,7 +1046,7 @@ read(0, *(void **)(param_1 + index * 8), __nbytes);
 
 ![102](/images/cyber-apocalypse-ctf-2025/pwn/102.png)
 
-あとはヒープを壊さないように`tcachebins`をexploitしていきます。
+あとはHeapを壊さないように`tcachebins`をexploitしていきます。
 
 ```python
 from pwn import *
