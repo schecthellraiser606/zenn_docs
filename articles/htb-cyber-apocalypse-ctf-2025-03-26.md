@@ -1021,7 +1021,7 @@ ghidraで確認します。
 ![97](/images/cyber-apocalypse-ctf-2025/pwn/97.png)
 ![98](/images/cyber-apocalypse-ctf-2025/pwn/98.png)
 
-あとはどうHEAPをいじくるかですが、`delete_plan`で削除フラグを設定されており、代表的なUAFやdouble freeは単純に出来なさそうです。
+あとはどうHeapをいじくるかですが、`delete_plan`で削除フラグを設定されており、代表的なUAFやdouble freeは単純に出来なさそうです。
 
 そこでOverlapを実施します。`edit_plan`の以下のコードを見ると、構造体の単純なサイズを計算しそのバイト数`read`で読み込んでます。
 ```C
@@ -1042,7 +1042,7 @@ read(0, *(void **)(param_1 + index * 8), __nbytes);
 
 ![101](/images/cyber-apocalypse-ctf-2025/pwn/101.png)
 
-その後、`0x68`バイト分のチャンクを作成すると、edit_planで3つ目のfreeされた`tcachebins`にあるチャンクをいじくれるHeapを確保できます。
+その後、`0x68`バイト分のチャンクを作成すると、`edit_plan`で3つ目のfreeされた`tcachebins`にあるチャンクをいじくれるHeapを確保できます。
 
 ![102](/images/cyber-apocalypse-ctf-2025/pwn/102.png)
 
