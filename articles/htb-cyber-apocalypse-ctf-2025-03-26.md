@@ -1038,11 +1038,11 @@ read(0, *(void **)(param_1 + index * 8), __nbytes);
 
 2つ目のサイズが`0x31`から`0x71`になっているのが分かります。これでOverlapが出来ました。
 
-ここで２つ目と３つ目のチャンクを解法してやるとこうなります。
+ここで２つ目と３つ目のチャンクをfreeしてやるとこうなります。
 
 ![101](/images/cyber-apocalypse-ctf-2025/pwn/101.png)
 
-その後、`0x68`バイト分のチャンクを作成すると、edit_planで3つ目の解法された`tcachebins`にあるチャンクをいじくれるチャンクを確保できます。
+その後、`0x68`バイト分のチャンクを作成すると、edit_planで3つ目のfreeされた`tcachebins`にあるチャンクをいじくれるHeapを確保できます。
 
 ![102](/images/cyber-apocalypse-ctf-2025/pwn/102.png)
 
