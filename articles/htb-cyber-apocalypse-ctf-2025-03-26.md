@@ -741,6 +741,7 @@ PDFファイルが見えました。ただPDFのヘッダーが壊れてるの�
 https://pylingual.io/
 
 ![-1](/images/cyber-apocalypse-ctf-2025/forensic/1.png)
+![1](/images/cyber-apocalypse-ctf-2025/forensic/2.png)
 
 # Pwn
 ## Quack Quack - Very Easy
