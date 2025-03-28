@@ -143,7 +143,7 @@ print("Recovered flag:", flag.decode())
 
 # Reversing
 ## EncryptedScroll - Very Easy
-バイナリfileが渡されます。
+バイナリファイルが渡されます。
 フラグ判定バイナリのようです。
 
 ![15](/images/cyber-apocalypse-ctf-2025/rev/15.png)
@@ -157,7 +157,7 @@ Ghidraで見てみます。
 ![11](/images/cyber-apocalypse-ctf-2025/rev/11.png)
 
 ## Impossimaze - Easy
-バイナリfileが渡されます。何かよくわからないゲームぽいです。
+バイナリファイルが渡されます。何かよくわからないゲームぽいです。
 
 ![12](/images/cyber-apocalypse-ctf-2025/rev/12.png)
 
@@ -175,7 +175,7 @@ if (rax_20 == 0xd && var_6c_1 == 0x25)
 ![14](/images/cyber-apocalypse-ctf-2025/rev/14.png)
 
 ## EndlessCycle - Easy
-バイナリfileが渡されます。
+バイナリファイルが渡されます。
 フラグ判定バイナリのようです。
 
 ![16](/images/cyber-apocalypse-ctf-2025/rev/16.png)
@@ -189,7 +189,7 @@ BinaryNinjaで見てみます。
 ![18](/images/cyber-apocalypse-ctf-2025/rev/18.png)
 
 GDBで追います。
-とりあえず`main`のシェルコードを呼び出すところ`1f7`にBPを貼ります。
+とりあえず`main`のシェルコードを呼び出すところ`214`にBPを貼ります。
 ```bash
 pwndbg> b *0x555555555214
 Breakpoint 1 at 0x555555555214
@@ -206,7 +206,7 @@ Step実行してこの中身を見ます。
 
 ![21](/images/cyber-apocalypse-ctf-2025/rev/21.png)
 
-これを呼んでいけば解けそう。
+これを読んでいけば解けそう。
 `0x00007ffff7fbf032`の`syscall`は`push 0x1; pop rax`なので`write`命令ぽい。まぁ先ほどの`What is the flag?`を出力するところですね。
 `0x00007ffff7fbf049`の`syscall`は`xor eax,eax`なので`read`命令ぽい。フラグを読み込むところですね。
 読み込んだフラグはポインタとして`r12`で帰ってくるので、それを`rcx`に入れて`0x00007ffff7fbf059`で`0xbeefcafe`とXORしてますね。
@@ -260,7 +260,7 @@ base64デコードするとフラグが見えました。
 ![26](/images/cyber-apocalypse-ctf-2025/forensic/26.png)
 
 ## Silent Trap - Easy
-pcapfileが渡されるのでこれを解析します。
+pcapファイルが渡されるのでこれを解析します。
 ### 1. What is the subject of the first email that the victim opened and replied to?
 先ずメールの一覧がレスポンスされてる部分を確認します。
 
@@ -283,11 +283,11 @@ PKヘッダで圧縮されてそうなfileが見えます。また、`.pdf.exe`�
 リクエストの`uid=72`をみて`Today 15:46`にきている「Bug Report - In-game Imbalance Issue in Eldoria」のメールの時間帯を記載すればいいです。
 
 ### 3. What is the MD5 hash of the malware file?
-適当にメール文面のHTMLfileを見てみます。
+適当にメール文面のHTMLファイルを見てみます。
 
 ![32](/images/cyber-apocalypse-ctf-2025/forensic/32.png)
 
-ZIPのパスワードが`eldoriaismylife`で書いてるので解答します。後はハッシュを確認するだけ。
+ZIPのパスワードが`eldoriaismylife`で書いてるので解凍します。後はハッシュを確認するだけ。
 ```
 certutil -hashfile Eldoria_Balance_Issue_Report.pdf.exe md5
 ```
@@ -727,7 +727,7 @@ SEPARATOR
 
 ![64](/images/cyber-apocalypse-ctf-2025/forensic/64.png)
 
-PDFファイルが見えました。ただPDFのヘッダーが壊れてるので適当に`b%PDF-1.4\n%\xe2\xe3\xcf\xd3\n'`とかつけて修正します。
+PDFファイルが見えました。ただPDFのヘッダーが壊れてるので適当に`b'%PDF-1.4\n%\xe2\xe3\xcf\xd3\n\x52'`とかつけて修正します。
 
 ![65](/images/cyber-apocalypse-ctf-2025/forensic/65.png)
 
@@ -1144,7 +1144,7 @@ p.interactive()
 ![103](/images/cyber-apocalypse-ctf-2025/pwn/103.png)
 
 # 最後に
-優しい問題から難しい問題まで幅広くあり、色々な問題を楽しめました！
+易しい問題から難しい問題まで幅広くあり、色々な問題を楽しめました！
 夢中でやってしまった。
 
 誘ってくださったRWPLの皆さんには感謝です。
