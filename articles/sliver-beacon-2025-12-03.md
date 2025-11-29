@@ -14,7 +14,7 @@ published: false
 C2フレームワークとして知られる[Sliver](https://github.com/BishopFox/sliver)のビーコンについて、そのシンボル難読化手法をリバースエンジニアリングから見ていきます。「コード追えばいいじゃん」はドMリバーサールートから外れるのでNGです。
 
 # Sliverとは
-SliverはオープンソースのC2フレームワークでペンテストで使われたりしてます。以下の様に実際の攻撃者にも使われてしまってるツールです。
+SliverはオープンソースのC2フレームワークでペンテストに使われたりしてます。以下の様に実際の攻撃者にも使われてしまってるツールです。
 
 https://thehackernews.com/2025/08/apache-activemq-flaw-exploited-to.html
 
@@ -31,7 +31,7 @@ generate beacon --http IP:Port -N mybeacon
 この時に生成されるexeファイルがビーコンです。このビーコンはデフォルトでシンボルを難読化する処理が入ります。
 このビーコン作成の際に`--skip-symbols`のオプションを指定するとシンボル難読化をスキップできます。
 
-この二つのビーコン作成方法で生成されたexeファイルを比較しながら読み解いていこうと思います。
+この2つのビーコン作成方法で生成されたexeファイルを比較しながら読み解いていこうと思います。
 
 # リバースエンジニアリング
 ## ビーコン作成
@@ -50,6 +50,7 @@ generate beacon --http IP:Port -N mybeacon
 
 + tak.exe
 ![3](/images/sliver-beacon/3.png)
+
 + tak-skip.exe
 ![4](/images/sliver-beacon/4.png)
 
@@ -59,17 +60,18 @@ generate beacon --http IP:Port -N mybeacon
 ビーコンのメイン関数に入るまでは`tak-skip.exe`で解析していこうと思います。
 ### Go language
 SliverはGo言語製です。最初の実行処理周りはGo言語のバイナリを意識して解析する必要があります。
-以下の様に最初は２回ほどJMPします。
+以下の様に最初は2回ほどJMPします。
 ※関数名などシンボルは自身で記載したものです。そのままリバーシングしても`sub_XXXXXX`のままなので、TryHarderしましょう。
 
 ![5](/images/sliver-beacon/5.png)
+
 ![6](/images/sliver-beacon/6.png)
 
 その後、以下の様な処理に入ります。goroutineの呼出し前の処理です。
 
 ![7](/images/sliver-beacon/7.png)
 
-ここで注目するのが以下の処理でしょうか？Intelフラグの確認処理ですね。
+ここで注目するのが以下の処理でしょうか。Intelフラグの確認処理ですね。
 ```
 00464da0        if (temp0 != 0)
 00464db8            if (temp1 == 0x756e6547 && temp3 == 0x49656e69 && temp2 == 0x6c65746e)
@@ -84,9 +86,10 @@ SliverはGo言語製です。最初の実行処理周りはGo言語のバイナ�
 
 https://go.dev/src/runtime/asm_amd64.s
 
-この関数の最後の処理を見てみるとGo言語特有の呼びだしが見えます。`newproc`からGoルーチンの呼出しが行われ、スタックに積まれている`mainPC`が指す`runtime.main`が`newproc`によって実行されます。
+この関数の最後の処理を見てみるとGo言語特有の呼びだしが見えます。`newproc`からGoルーチンの呼出しが行われ、スタックに積まれている`mainPC`の指す`runtime.main`が`newproc`によって実行されます。
 
 ![8](/images/sliver-beacon/8.png)
+
 ![9](/images/sliver-beacon/9.png)
 
 この流れは以下のブログが参考になると思われます。
@@ -102,9 +105,12 @@ https://engineers.ffri.jp/entry/2022/04/11/141131
 
 + tak-skip.exe
 ![11](/images/sliver-beacon/11.png)
+
 ![12](/images/sliver-beacon/12.png)
+
 + tak.exe
 ![13](/images/sliver-beacon/13.png)
+
 ![14](/images/sliver-beacon/14.png)
 
 
@@ -115,11 +121,12 @@ https://engineers.ffri.jp/entry/2022/04/11/141131
 
 + tak-skip.exe
 ![15](/images/sliver-beacon/15.png)
+
 + tak.exe
 ![16](/images/sliver-beacon/16.png)
 
 わぁ、全然違うや。
-シンボル難読化されてないものは直で`kernel32.dll`の文字が見えます。おそらくDLLのロードだと思われます。難読化されてるほうはよくわからんバイトが並んでますね（コメントや関数名ですでにデコードや解析が済んでるのは悪しからず。）
+シンボル難読化されてないものは直で`kernel32.dll`の文字が見えます。おそらくDLLのロードだと思われます。難読化されてるほうはよくわからんバイトが並んでますね（コメントや関数名ですでにデコードや解析が済んでるのは悪しからず）。
 
 ここからは難読化されてるほうの関数を追っていきます。
 
@@ -155,6 +162,7 @@ https://engineers.ffri.jp/entry/2022/04/11/141131
 これもStack積んでガチャガチャしてたので同様に動的解析します。
 
 ![22](/images/sliver-beacon/22.png)
+
 ![23](/images/sliver-beacon/23.png)
 
 `Failed to load`の文字列がStackメモリ上に見えます。これは難読化されてないものだと以下の様に見えます。
@@ -167,12 +175,12 @@ Stackガチャガチャしてたので同様に動的解析します。
 
 ![25](/images/sliver-beacon/25.png)
 
-`IsDebuggerPresent`が見えます。アンチデバックでよく使われるAPIですね。
+`IsDebuggerPresent`が見えます。アンチデバッグでよく使われるAPIですね。
 
-こんな感じでStack String Obfuscationで難読化されているバイト列がところどころにあります。
+こんな感じでStack String Obfuscationによって難読化されているバイト列がところどころにあります。
 Stack Stringと言ってもロジック自体はバラバラで、Solverコード書くのが面倒そうです。面倒なのでやりません。許せサスケ。
 
 # おわりに
 Sliverのビーコンにおけるシンボル難読化手法をリバースエンジニアリングから見てきました。
-Stack String を用いた難読化が主に使われていることがわかりました。
+Stack Stringを用いた難読化が主に使われていることがわかりました。
 明日には忘れてそうな内容ですが、リバースエンジニアリングの参考になれば幸いです。
