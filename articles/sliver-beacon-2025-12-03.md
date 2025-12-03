@@ -3,12 +3,12 @@ title: "リバーシングで読み解くSliver Beaconのシンボル難読化"
 emoji: "🥷"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Security, reversing, Windows]
-published: false
+published: true
 ---
 
 # はじめに
 :::message
-これは [RWPL Advent Calendar 2025](https://adventar.org/calendars/11609) の3日目の記事です。
+これは [RWPL Advent Calendar 2025](https://adventar.org/calendars/11609) の3日目の記事です。昨日の記事は[SQL Injectionを安全に検証するために](https://y0d3n.hatenablog.com/entry/2025/12/02/183111)でした。
 :::
 
 C2フレームワークとして知られる[Sliver](https://github.com/BishopFox/sliver)のビーコンについて、そのシンボル難読化手法をリバースエンジニアリングから見ていきます。「コード追えばいいじゃん」はドMリバーサールートから外れるのでNGです。
