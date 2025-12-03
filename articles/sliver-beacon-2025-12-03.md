@@ -136,7 +136,12 @@ https://engineers.ffri.jp/entry/2022/04/11/141131
 
 ![17](/images/sliver-beacon/17.png)
 
-なんかよくわからんバイト列があります。なんやこれ。
+なんかよくわからんバイト列があります。
+HUH???
+
+![26](/images/sliver-beacon/26.png)
+
+なんやこれ。
 アセンブリを読みます。
 
 ![18](/images/sliver-beacon/18.png)
