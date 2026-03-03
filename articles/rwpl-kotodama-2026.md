@@ -374,7 +374,7 @@ p.interactive()
 ![26](/images/kotodama/26.png)
 
 これでシェルが起動できていそうですね！`ls`コマンドが通っています。
-#### 全体のコード
+### 全体のコード
 以下が全体のコードになります。
 ```python
 from pwn import *
