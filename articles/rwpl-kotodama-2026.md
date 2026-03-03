@@ -285,8 +285,8 @@ puts(puts@got);
 └──────────────────────────────────────────────┘
 ```
 
-### Exploit
-#### バッファオーバーフローのオフセットの特定
+## Exploit
+### バッファオーバーフローのオフセットの特定
 とりあえず、バッファオーバーフローでスタックを汚染するためのオフセットを特定してみましょう。`cyclic`コマンドでユニークなパターンを生成して、どこまでオーバーフローできるか確認します。
 
 ```bash
@@ -305,7 +305,7 @@ pwndbg> cyclic 0x100
 
 120バイトでRIPを上書きできることがわかります。
 
-#### Stage 1: libcアドレスのリーク
+### Stage 1: libcアドレスのリーク
 まずは、libcのアドレスをリークするためのROPchainを作ってみましょう。以下はpwntoolsライブラリを使ったPythonで書いたROPchainの例です。
 ```python
 from pwn import *
@@ -343,7 +343,7 @@ print("libc address: " + hex(libc.address))
 libcのputs関数のアドレスがリークでき、そこからlibcのベースアドレスも特定できます。
 また、「Enter your KOTODAMA:」のプロンプトが再度送られていることがわかります。これでStage 2のROPchainを送る準備ができました。
 
-#### Stage 2: /bin/shの実行
+### Stage 2: /bin/shの実行
 次に、libcのガジェットを利用してROPchainを組んで、`execve("/bin/sh", 0, 0)`を呼び出してみます。
 適当に`ropper`などのツールを使って、libcの中から`pop rdi; ret`、`pop rsi; ret`、`pop rdx; ret`などのガジェットを探してみましょう。
 
@@ -424,7 +424,7 @@ p.sendlineafter(b'Enter your KOTODAMA:', rop2)
 
 p.interactive()
 ```
-#### 余談
+### 余談
 libcのaddressまでわかれば、pwntoolsには勝手にrop組んでくれるモジュールもあるので、そちらを利用してもいいと思います。
 ```python
 rop2 = ROP(libc)
