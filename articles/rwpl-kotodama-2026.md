@@ -7,7 +7,7 @@ published: true
 ---
 
 # はじめに
-2025/3/1に実施した[SECCON 13 電脳会議](https://www.seccon.jp/13/ep250301.html)のRWPL WorkShop（サブコンテンツ）で提供したPwn問題「kotodama」の作問者WriteUpです。
+2026/2/28 に実施した[SECCON 14 電脳会議](https://www.seccon.jp/14/ep260228.html)のRWPL WorkShop（サブコンテンツ）で提供したPwn問題「kotodama」の作問者WriteUpです。
 
 問題については以下のリポジトリにて公開しています
 https://github.com/schecthellraiser606/create_ctf/tree/main/2026/kotodama
