@@ -343,7 +343,7 @@ print("libc address: " + hex(libc.address))
 libcのputs関数のアドレスがリークでき、そこからlibcのベースアドレスも特定できます。
 また、「Enter your KOTODAMA:」のプロンプトが再度送られていることがわかります。これでStage 2のROPchainを送る準備ができました。
 
-#### Stage 2: シェルコードの実行
+#### Stage 2: /bin/shの実行
 次に、libcのガジェットを利用してROPchainを組んで、`execve("/bin/sh", 0, 0)`を呼び出してみます。
 適当に`ropper`などのツールを使って、libcの中から`pop rdi; ret`、`pop rsi; ret`、`pop rdx; ret`などのガジェットを探してみましょう。
 
