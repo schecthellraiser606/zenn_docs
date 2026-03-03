@@ -24,7 +24,6 @@ https://rwpl.github.io/
 - [pwntools](https://github.com/Gallopsled/pwntools)
 - [pwndbg](https://github.com/pwndbg/pwndbg)
 - docker
-- docker-compose
 - Ghidra
   - ※お好きなツールでいいと思いますが、今回はGhidraを使用して解説していきます
   - ※kaliだと`apt install ghidra`でインストールできます
