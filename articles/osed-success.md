@@ -1,6 +1,6 @@
 ---
 title: "【Offsec】OSED合格体験記"
-emoji: "🎉"
+emoji: "🦾"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: [Security, Offsec, OSED, バイナリ解析, Pwn]
 published: true
