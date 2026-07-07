@@ -3,7 +3,7 @@ title: "【Offsec】OSWE合格体験記"
 emoji: "🕷️"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: [Security, Offsec, OSWE, Web]
-published: false
+published: true
 ---
 
 # はじめに
@@ -126,6 +126,6 @@ https://app.hackthebox.com/machines/CCTV
 # 最後に
 OSWEは個人的に300台の中で一番苦手分野で、難しい試験でした。
 
-ただ、この試験を通じてある程度のWeb Exploitの知識が付き、SQLiやXSSなどの脆弱性のExploitを克服し、Exploitを自動化するスキルも身につけることができました。今後の業務に活かしていきたいと思います。
+ただ、この試験を通じてある程度のWeb Exploitの知識が付き、SQLiやXSSなどの脆弱性のExploitを克服して自動化するスキルも身につけることができました。今後の業務に活かしていきたいと思います。
 
 あー、バリむずかった。よくやった俺。
