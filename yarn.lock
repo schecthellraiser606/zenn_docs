@@ -152,7 +152,7 @@
     sentence-splitter "^5.0.0"
     textlint-rule-helper "^2.3.1"
 
-"@textlint/ast-node-types@15.8.0":
+"@textlint/ast-node-types@15.8.0", "@textlint/ast-node-types@^15.2.1":
   version "15.8.0"
   resolved "https://registry.yarnpkg.com/@textlint/ast-node-types/-/ast-node-types-15.8.0.tgz#8454e68b08ff356557da72b1e17f6e9ee786869f"
   integrity sha512-5CiH9COYmovWmExQgs7763DzX6Gy9zjkjJ7JxCC95wyTcjwQn/8poNF6fv3qzRlmx8CRRde8DHr9FcgAAiPzgw==
@@ -161,11 +161,6 @@
   version "13.4.1"
   resolved "https://npm.flatt.tech/@textlint/ast-node-types/-/ast-node-types-13.4.1.tgz#00424f7b9bc6fe15cf6a78468ffe1e5d1adce5b2"
   integrity sha512-qrZyhCh8Ekk6nwArx3BROybm9BnX6vF7VcZbijetV/OM3yfS4rTYhoMWISmhVEP2H2re0CtWEyMl/XF+WdvVLQ==
-
-"@textlint/ast-node-types@^15.2.1":
-  version "15.5.4"
-  resolved "https://npm.flatt.tech/@textlint/ast-node-types/-/ast-node-types-15.5.4.tgz#4d6b8c239bb1f1e444d3a7d143b3609c8f11ff2a"
-  integrity sha512-bVtB6VEy9U9DpW8cTt25k5T+lz86zV5w6ImePZqY1AXzSuPhqQNT77lkMPxonXzUducEIlSvUu3o7sKw3y9+Sw==
 
 "@textlint/ast-tester@15.8.0":
   version "15.8.0"
@@ -2680,7 +2675,7 @@ textlint-util-to-string@^3.1.1, textlint-util-to-string@^3.3.4:
     structured-source "^4.0.0"
     unified "^8.4.0"
 
-textlint@^15.6.1:
+textlint@^15.8.0:
   version "15.8.0"
   resolved "https://registry.yarnpkg.com/textlint/-/textlint-15.8.0.tgz#7999270bc618862b11b69190f0a53cc02db6163d"
   integrity sha512-3xE8MknztkpEC5MYDO1lXhUDXx+uq45gdvZB16Xh80rX148NgUehSyWCc5ir2SBW0KVpzRRgU3EWAJZqsBfqtA==
