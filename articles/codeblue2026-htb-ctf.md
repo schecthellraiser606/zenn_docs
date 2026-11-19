@@ -8,7 +8,7 @@ published: false
 
 # はじめに
 
-2026年11月に開催されたHTB主催の[Hacker X Hacker CTF](https://ctf.hackthebox.com/event/details/code-blue-2026-3726)へチラッと参加しました。
+2026年11月にCODE BLUE 2026で開催されたHTB主催の[Hacker X Hacker CTF](https://ctf.hackthebox.com/event/details/code-blue-2026-3726)へチラッと参加しました。
 
 この記事は、ファーストブラッドを獲得した「Kasio」というPwn問題についてのWriteupです。
 
