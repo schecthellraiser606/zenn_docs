@@ -124,7 +124,7 @@ UAFで値も見えることを確認する。（あとでこれ使わないこ�
 
 ## Pwned
 
-![25](/images/codeblue2026/25.png)
+![flag](/images/codeblue2026/flag.png)
 
 ## Exploit Code
 
